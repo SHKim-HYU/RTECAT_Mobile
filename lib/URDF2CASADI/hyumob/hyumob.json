@@ -1,0 +1,44 @@
+{
+    "name": "hyumob",
+    "n_dof": "3",
+    "n_joints": "4",
+    "n_q": "3",
+    "n_frames": "17",
+    "gravity": {
+        "x": "0",
+        "y": "0",
+        "z": "-9.8100000000000005"
+    },
+    "forward_kinematics_path": "HYUMOB/hyumob_fk.casadi",
+    "forward_dynamics_path": "HYUMOB/hyumob_fd.casadi",
+    "inverse_dynamics_path": "HYUMOB/hyumob_id.casadi",
+    "Jacobian_space_path": "HYUMOB/hyumob_J_s.casadi",
+    "Jacobian_body_path": "HYUMOB/hyumob_J_b.casadi",
+    "mass_matrix_path": "HYUMOB/hyumob_M.casadi",
+    "mass_inverse_matrix_path": "HYUMOB/hyumob_Minv.casadi",
+    "coriolis_path": "HYUMOB/hyumob_C.casadi",
+    "gravity_path": "HYUMOB/hyumob_G.casadi",
+    "joints": {
+        "lin_x_joint": {
+            "joint_types": "JointModelPX",
+            "joint_pos_ub": "10000000000000000",
+            "joint_pos_lb": "-10000000000000000",
+            "joint_torque_limit": "1000",
+            "joint_vel_limit": "3.5"
+        },
+        "lin_y_joint": {
+            "joint_types": "JointModelPY",
+            "joint_pos_ub": "10000000000000000",
+            "joint_pos_lb": "-10000000000000000",
+            "joint_torque_limit": "1000",
+            "joint_vel_limit": "3.5"
+        },
+        "rot_z_joint": {
+            "joint_types": "JointModelRZ",
+            "joint_pos_ub": "10000000000000000",
+            "joint_pos_lb": "-10000000000000000",
+            "joint_torque_limit": "1000",
+            "joint_vel_limit": "3.5"
+        }
+    }
+}
