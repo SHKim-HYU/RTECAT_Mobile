@@ -480,7 +480,7 @@ void odom_run(void *arg) {
 	
 	struct packet::Odometry *odom_msg = (packet::Odometry *)malloc(BUFLEN);
 	
-    rt_task_set_periodic(NULL, TM_NOW, 100*cycle_ns); // 100ms
+    rt_task_set_periodic(NULL, TM_NOW, 1*cycle_ns); // 100ms
 
 	socket = __cobalt_socket(AF_RTIPC, SOCK_DGRAM, IPCPROTO_XDDP);
 	if (socket < 0) {
@@ -541,7 +541,7 @@ void cmd_vel_run(void *arg) {
 	
 	struct packet::Twist *twist_msg = (packet::Twist *)malloc(BUFLEN);
 
-    rt_task_set_periodic(NULL, TM_NOW, 100*cycle_ns); // 100ms
+    rt_task_set_periodic(NULL, TM_NOW, 1*cycle_ns); // 100ms
 
 	socket = __cobalt_socket(AF_RTIPC, SOCK_DGRAM, IPCPROTO_XDDP);
 	if (socket < 0) {
