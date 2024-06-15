@@ -184,6 +184,7 @@ CMakeFiles/RTECAT_Mobile_CTRL.dir/src/RTECAT_Mobile_Client.cpp.o: ../include/Rob
 CMakeFiles/RTECAT_Mobile_CTRL.dir/src/RTECAT_Mobile_Client.cpp.o: ../include/Robot/ServoAxis_Motor.h
 CMakeFiles/RTECAT_Mobile_CTRL.dir/src/RTECAT_Mobile_Client.cpp.o: ../include/Robot/json_loader.h
 CMakeFiles/RTECAT_Mobile_CTRL.dir/src/RTECAT_Mobile_Client.cpp.o: ../include/Robot/liegroup_robotics.h
+CMakeFiles/RTECAT_Mobile_CTRL.dir/src/RTECAT_Mobile_Client.cpp.o: ../include/Robot/xddp_packet.h
 CMakeFiles/RTECAT_Mobile_CTRL.dir/src/RTECAT_Mobile_Client.cpp.o: ../src/RTECAT_Mobile_Client.cpp
 CMakeFiles/RTECAT_Mobile_CTRL.dir/src/RTECAT_Mobile_Client.cpp.o: ../src/RTECAT_Mobile_Client.h
 CMakeFiles/RTECAT_Mobile_CTRL.dir/src/RTECAT_Mobile_Client.cpp.o: ../src/mainwindow.h

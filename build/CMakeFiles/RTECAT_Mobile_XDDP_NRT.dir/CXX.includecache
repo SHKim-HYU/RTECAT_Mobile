@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/Robot/xddp_packet.h
+
+/home/robot/robot_ws/RTECAT_Mobile/src/xddp_nrt.cpp
+stdio.h
+-
+stdlib.h
+-
+unistd.h
+-
+signal.h
+-
+string.h
+-
+malloc.h
+-
+pthread.h
+-
+fcntl.h
+-
+errno.h
+-
+xddp_packet.h
+/home/robot/robot_ws/RTECAT_Mobile/src/xddp_packet.h
+

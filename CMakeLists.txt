@@ -182,8 +182,20 @@ find_package(jsoncpp REQUIRED)
 target_link_libraries(${CTRL_EXECUTABLE} jsoncpp_lib)
 list(APPEND INCLUDE_DIRS_FOR_DYNAMIC_VIEW ${jSONCPP_INCLUDE_DIRS})
 
+# Test for XDDP
+# Source files
+set(XDDP_NRT_SOURCE_FILES
+    src/xddp_nrt.cpp
+)
+set(XDDP_NRT ${PROJECT_NAME}_XDDP_NRT)
+add_executable(${XDDP_NRT} ${XDDP_NRT_SOURCE_FILES})
+
+target_link_libraries(${XDDP_NRT}
+    pthread
+)
+
 # xenomai
-find_package(Xenomai 3.1.1 REQUIRED COBALT)
+find_package(Xenomai 3.2.3 REQUIRED COBALT)
 message(STATUS "Xenomai found with theses skins: ${Xenomai_SKINS}")
 if(Xenomai_FOUND)
     target_include_directories(${CTRL_EXECUTABLE} PUBLIC ${KERNELHEADERS_DIR})

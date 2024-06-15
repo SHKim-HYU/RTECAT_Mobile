@@ -1017,7 +1017,7 @@ FIND_PACKAGE_MESSAGE_DETAILS_PkgConfig:INTERNAL=[/usr/bin/pkg-config][v0.29.1()]
 //Details about finding Threads
 FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
 //Details about finding Xenomai
-FIND_PACKAGE_MESSAGE_DETAILS_Xenomai:INTERNAL=[/usr/xenomai/include/cobalt;/usr/xenomai/include][cobalt;modechk;pthread;rt][cfound components: COBALT ][v3.2.3(3.1.1)]
+FIND_PACKAGE_MESSAGE_DETAILS_Xenomai:INTERNAL=[/usr/xenomai/include/cobalt;/usr/xenomai/include][cobalt;modechk;pthread;rt][cfound components: COBALT ][v3.2.3(3.2.3)]
 //ADVANCED property for variable: KERNELHEADERS_FOUND
 KERNELHEADERS_FOUND-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: LAPACK_Accelerate_LIBRARY

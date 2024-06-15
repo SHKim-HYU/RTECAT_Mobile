@@ -23,6 +23,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../include/Robot"
   "include/Robot/Robot_autogen/include"
   "../bin/inc"
+  "/usr/src/linux-headers-5.4.239-xenomai-3.2.3+"
   "../include/EcatSystem"
   "../include/Interpolator"
   "../include/QtWidgets"

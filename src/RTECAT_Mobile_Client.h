@@ -13,7 +13,7 @@
 #include <alchemy/task.h>
 #include <alchemy/timer.h>
 #include <rtdm/ipc.h> 
-
+#include "xddp_packet.h"
 #include "CS_mobile.h"
 
 #undef debug
@@ -41,8 +41,6 @@
 #include "ServoAxis_Motor.h"
 #include <PropertyDefinition.h>
 #include <liegroup_robotics.h>
-
-#define XDDP_PORT 0	/* [0..CONFIG-XENO_OPT_PIPE_NRDEV - 1] */
 
 #define NSEC_PER_SEC 			1000000000
 unsigned int cycle_ns = 1000000; // 1 ms
@@ -84,6 +82,8 @@ double gt=0;
 double traj_time=0;
 int motion=-1;
 
+Mob_JVec des_int;
+
 // Controller Gains
 Mob_JVec NRIC_Kp;
 Mob_JVec NRIC_Ki;
@@ -96,6 +96,7 @@ Mob_JVec Ki_n;
 // Mobile Jacobian
 Wheel_pinvJacobian Jinv_mob;
 Wheel_Jacobian J_mob;
+
 
 
 

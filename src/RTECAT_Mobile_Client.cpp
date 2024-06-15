@@ -8,7 +8,8 @@ CS_Mobile cs_nom_hyumob;
 RT_TASK safety_task;
 RT_TASK motor_task;
 RT_TASK print_task;
-RT_TASK xddp_writer;
+RT_TASK odom_writer;
+RT_TASK cmd_vel_listener;
 
 using namespace std;
 using namespace lr;
@@ -50,6 +51,7 @@ int initAxes()
 
         info_mob.des.e = Mob_JVec::Zero();
         info_mob.des.eint = Mob_JVec::Zero();
+		des_int = Mob_JVec::Zero();
 	}
 
 
@@ -140,34 +142,34 @@ void trajectory_generation(){
 	    switch(motion)
 	    {
 	    case 1:
-			info_mob.x_target(0)=0.0; info_mob.x_target(1)=0.0; info_mob.x_target(2)=0.0;
-	    	traj_time = 10;
-	    	motion++;
-			// motion=1;
-	        break;
-	    case 2:
 			info_mob.x_target(0)=0.3; info_mob.x_target(1)=0.0; info_mob.x_target(2)=0.0;
 	    	traj_time = 10;
 	    	motion++;
 			// motion=1;
 	        break;
-	    case 3:
+	    case 2:
 			info_mob.x_target(0)=0.0; info_mob.x_target(1)=0.0; info_mob.x_target(2)=0.0;
+	    	traj_time = 10;
+	    	motion++;
+			// motion=1;
+	        break;
+	    case 3:
+			info_mob.x_target(0)=0.0; info_mob.x_target(1)=0.3; info_mob.x_target(2)=0.0;
 	    	traj_time = 10;
 	    	motion++;
 	        break;
 	    case 4:
-			info_mob.x_target(0)=0.0; info_mob.x_target(1)=0.3; info_mob.x_target(2)=0.0;
-	    	traj_time = 10;
-			motion++;
-	    	break;
-		case 5:
 			info_mob.x_target(0)=0.0; info_mob.x_target(1)=0.0; info_mob.x_target(2)=0.0;
 	    	traj_time = 10;
 			motion++;
 	    	break;
-		case 6:
+		case 5:
 			info_mob.x_target(0)=0.0; info_mob.x_target(1)=0.0; info_mob.x_target(2)=1.5709;
+	    	traj_time = 10;
+			motion++;
+	    	break;
+		case 6:
+			info_mob.x_target(0)=0.0; info_mob.x_target(1)=0.0; info_mob.x_target(2)=0.0;
 	    	traj_time = 10;
 	    	// motion++;
 			motion=1;
@@ -232,9 +234,12 @@ void control()
     }
 	info_mob.des.q_dot = Jinv_mob * info_mob.des.F;
 	
+	// [Teleop controller]
+	des_int += info_mob.des.x_dot*period;
+	info_mob.nom.F = cs_nom_hyumob.ComputedTorqueControl(info_mob.nom.x, info_mob.nom.x_dot, des_int, info_mob.des.x_dot, Vector3d::Zero());
 
 	// [CTC]
-	info_mob.nom.F = cs_nom_hyumob.ComputedTorqueControl(info_mob.nom.x, info_mob.nom.x_dot, info_mob.des.x, info_mob.des.x_dot, info_mob.des.x_ddot);
+	// info_mob.nom.F = cs_nom_hyumob.ComputedTorqueControl(info_mob.nom.x, info_mob.nom.x_dot, info_mob.des.x, info_mob.des.x_dot, info_mob.des.x_ddot);
 	// info_mob.nom.F = cs_nom_hyumob.ComputedTorqueControl(info_mob.nom.x, info_mob.nom.x_dot, info_mob.des.x, info_mob.des.x_dot, info_mob.des.x_ddot, info_mm.act.F_ext);
 	
 
@@ -311,7 +316,7 @@ void motor_run(void *arg)
         if(system_ready)
         {
             // Trajectory Generation
-            trajectory_generation();
+            // trajectory_generation();
             
             // Compute KDL
             compute();	
@@ -457,12 +462,135 @@ void print_run(void *arg)
 	}
 }
 
+static void fail(const char *reason)
+{
+	perror(reason);
+	exit(EXIT_FAILURE);
+}
+
+void odom_run(void *arg) {
+    struct sockaddr_ipc addr;
+	uint addrlen = sizeof(addr);
+	int socket;
+	int ret, bufsize = 0;
+	struct timespec ts;
+	size_t poolsz;
+	char buf[128];
+	size_t BUFLEN = sizeof(packet::Odometry);
+	
+	struct packet::Odometry *odom_msg = (packet::Odometry *)malloc(BUFLEN);
+	
+    rt_task_set_periodic(NULL, TM_NOW, 100*cycle_ns); // 100ms
+
+	socket = __cobalt_socket(AF_RTIPC, SOCK_DGRAM, IPCPROTO_XDDP);
+	if (socket < 0) {
+		perror("socket");
+		exit(EXIT_FAILURE);
+	}
+
+	poolsz = 16384; /* bytes */
+	if( __cobalt_setsockopt(socket, SOL_XDDP, XDDP_POOLSZ, &poolsz, sizeof(poolsz))==-1)
+		fail("setsockopt");
+
+	memset(&addr, 0, sizeof(addr));
+	addr.sipc_family = AF_RTIPC;
+	addr.sipc_port = XDDP_PORT_ODOM;
+
+	if(__cobalt_bind(socket, (struct sockaddr *)&addr, sizeof(addr)) == -1)
+		fail("bind");
+
+    while(1) 
+    {
+        rt_task_wait_period(NULL); //wait for next cycle
+		if(system_ready)
+		{
+			Quaterniond quaternion(cs_nom_hyumob.getRMat());
+
+			odom_msg->pose.position.x = info_mob.nom.x(0);
+			odom_msg->pose.position.y = info_mob.nom.x(1);
+			odom_msg->pose.orientation.x = quaternion.x();
+			odom_msg->pose.orientation.y = quaternion.y();
+			odom_msg->pose.orientation.z = quaternion.z();
+			odom_msg->pose.orientation.w = quaternion.w();
+			odom_msg->twist.linear.x = info_mob.nom.x_dot(0);
+			odom_msg->twist.linear.y = info_mob.nom.x_dot(1);
+			odom_msg->twist.angular.z = info_mob.nom.x_dot(2);
+			
+			ret = __cobalt_sendto(socket, odom_msg, BUFLEN, 0, (struct sockaddr *) &addr, addrlen);
+			// ret = __cobalt_sendto(socket, odom_msg, BUFLEN, 0, NULL, 0);
+			// if (ret != BUFLEN)
+			// {
+			// 	fail("sendto");		
+			// }
+		}
+	}
+	close(socket);
+
+	return;
+}
+
+void cmd_vel_run(void *arg) {
+    struct sockaddr_ipc addr;
+	uint addrlen = sizeof(addr);
+	int socket;
+	int ret, n = 0, len;
+	struct timespec ts;
+	size_t poolsz;
+	char buf[128];
+	size_t BUFLEN = sizeof(packet::Twist);
+	
+	struct packet::Twist *twist_msg = (packet::Twist *)malloc(BUFLEN);
+
+    rt_task_set_periodic(NULL, TM_NOW, 100*cycle_ns); // 100ms
+
+	socket = __cobalt_socket(AF_RTIPC, SOCK_DGRAM, IPCPROTO_XDDP);
+	if (socket < 0) {
+		perror("socket");
+		exit(EXIT_FAILURE);
+	}
+
+	poolsz = 16384; /* bytes */
+	if(__cobalt_setsockopt(socket, SOL_XDDP, XDDP_POOLSZ, &poolsz, sizeof(poolsz))==-1)
+		fail("setsockopt");
+
+	memset(&addr, 0, sizeof(addr));
+	addr.sipc_family = AF_RTIPC;
+	addr.sipc_port = XDDP_PORT_CMD_VEL;
+
+	if( __cobalt_bind(socket, (struct sockaddr *)&addr, sizeof(addr)) == -1)
+		fail("bind");
+
+    while(1) 
+    {
+        rt_task_wait_period(NULL); //wait for next cycle
+
+
+		ret = __cobalt_recvfrom(socket, twist_msg, BUFLEN, 0, NULL, 0);
+
+		// if (ret <= 0)
+		// 	fail("recvfrom");
+		// else{
+		if(ret >0)
+		{
+			// printf("ret: %d\n",ret);
+			// printf("\tTwist\n");
+			// printf("\tx: %lf, y: %lf, z: %lf\n\n", twist_msg->linear.x, twist_msg->linear.y, twist_msg->angular.z);
+			info_mob.des.x_dot << twist_msg->linear.x , twist_msg->linear.y, twist_msg->angular.z;
+		}
+		
+	}
+
+	close(socket);
+
+	return;
+}
 
 void signal_handler(int signum)
 {
     rt_task_delete(&motor_task);
     rt_task_delete(&print_task);
-    rt_task_delete(&xddp_writer);
+    rt_task_delete(&odom_writer);
+	rt_task_delete(&cmd_vel_listener);
     
     for(int i=0; i<MOBILE_DRIVE_NUM; i++)
         ecat_iservo[i].setServoOff();
@@ -516,6 +644,14 @@ int main(int argc, char *argv[])
     rt_task_create(&safety_task, "safety_task", 0, 93, 0);
     rt_task_set_affinity(&safety_task, &cpuset_rt1);
 	rt_task_start(&safety_task, &safety_run, NULL);
+
+	rt_task_create(&odom_writer, "odom_writer", 0, 80, 0);
+    // rt_task_set_affinity(&odom_writer, &cpuset_rt1);
+	rt_task_start(&odom_writer, &odom_run, NULL);
+
+	rt_task_create(&cmd_vel_listener, "cmd_vel_listener", 0, 90, 0);
+    // rt_task_set_affinity(&cmd_vel_listener, &cpuset_rt1);
+	rt_task_start(&cmd_vel_listener, &cmd_vel_run, NULL);
 
     rt_task_create(&motor_task, "motor_task", 0, 99, 0);
     rt_task_set_affinity(&motor_task, &cpuset_rt2);

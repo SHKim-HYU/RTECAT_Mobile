@@ -157,6 +157,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named RTECAT_Mobile_XDDP_NRT
+
+# Build rule for target.
+RTECAT_Mobile_XDDP_NRT: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 RTECAT_Mobile_XDDP_NRT
+.PHONY : RTECAT_Mobile_XDDP_NRT
+
+# fast build rule for target.
+RTECAT_Mobile_XDDP_NRT/fast:
+	$(MAKE) -f CMakeFiles/RTECAT_Mobile_XDDP_NRT.dir/build.make CMakeFiles/RTECAT_Mobile_XDDP_NRT.dir/build
+.PHONY : RTECAT_Mobile_XDDP_NRT/fast
+
+#=============================================================================
 # Target rules for targets named RTECAT_Mobile_CTRL
 
 # Build rule for target.
@@ -168,6 +181,19 @@ RTECAT_Mobile_CTRL: cmake_check_build_system
 RTECAT_Mobile_CTRL/fast:
 	$(MAKE) -f CMakeFiles/RTECAT_Mobile_CTRL.dir/build.make CMakeFiles/RTECAT_Mobile_CTRL.dir/build
 .PHONY : RTECAT_Mobile_CTRL/fast
+
+#=============================================================================
+# Target rules for targets named RTECAT_Mobile_XDDP_NRT_autogen
+
+# Build rule for target.
+RTECAT_Mobile_XDDP_NRT_autogen: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 RTECAT_Mobile_XDDP_NRT_autogen
+.PHONY : RTECAT_Mobile_XDDP_NRT_autogen
+
+# fast build rule for target.
+RTECAT_Mobile_XDDP_NRT_autogen/fast:
+	$(MAKE) -f CMakeFiles/RTECAT_Mobile_XDDP_NRT_autogen.dir/build.make CMakeFiles/RTECAT_Mobile_XDDP_NRT_autogen.dir/build
+.PHONY : RTECAT_Mobile_XDDP_NRT_autogen/fast
 
 #=============================================================================
 # Target rules for targets named RTECAT_Mobile_CTRL_autogen
@@ -365,6 +391,33 @@ RTECAT_Mobile_CTRL_autogen/mocs_compilation.cpp.s:
 	$(MAKE) -f CMakeFiles/RTECAT_Mobile_CTRL.dir/build.make CMakeFiles/RTECAT_Mobile_CTRL.dir/RTECAT_Mobile_CTRL_autogen/mocs_compilation.cpp.s
 .PHONY : RTECAT_Mobile_CTRL_autogen/mocs_compilation.cpp.s
 
+RTECAT_Mobile_XDDP_NRT_autogen/mocs_compilation.o: RTECAT_Mobile_XDDP_NRT_autogen/mocs_compilation.cpp.o
+
+.PHONY : RTECAT_Mobile_XDDP_NRT_autogen/mocs_compilation.o
+
+# target to build an object file
+RTECAT_Mobile_XDDP_NRT_autogen/mocs_compilation.cpp.o:
+	$(MAKE) -f CMakeFiles/RTECAT_Mobile_XDDP_NRT.dir/build.make CMakeFiles/RTECAT_Mobile_XDDP_NRT.dir/RTECAT_Mobile_XDDP_NRT_autogen/mocs_compilation.cpp.o
+.PHONY : RTECAT_Mobile_XDDP_NRT_autogen/mocs_compilation.cpp.o
+
+RTECAT_Mobile_XDDP_NRT_autogen/mocs_compilation.i: RTECAT_Mobile_XDDP_NRT_autogen/mocs_compilation.cpp.i
+
+.PHONY : RTECAT_Mobile_XDDP_NRT_autogen/mocs_compilation.i
+
+# target to preprocess a source file
+RTECAT_Mobile_XDDP_NRT_autogen/mocs_compilation.cpp.i:
+	$(MAKE) -f CMakeFiles/RTECAT_Mobile_XDDP_NRT.dir/build.make CMakeFiles/RTECAT_Mobile_XDDP_NRT.dir/RTECAT_Mobile_XDDP_NRT_autogen/mocs_compilation.cpp.i
+.PHONY : RTECAT_Mobile_XDDP_NRT_autogen/mocs_compilation.cpp.i
+
+RTECAT_Mobile_XDDP_NRT_autogen/mocs_compilation.s: RTECAT_Mobile_XDDP_NRT_autogen/mocs_compilation.cpp.s
+
+.PHONY : RTECAT_Mobile_XDDP_NRT_autogen/mocs_compilation.s
+
+# target to generate assembly for a file
+RTECAT_Mobile_XDDP_NRT_autogen/mocs_compilation.cpp.s:
+	$(MAKE) -f CMakeFiles/RTECAT_Mobile_XDDP_NRT.dir/build.make CMakeFiles/RTECAT_Mobile_XDDP_NRT.dir/RTECAT_Mobile_XDDP_NRT_autogen/mocs_compilation.cpp.s
+.PHONY : RTECAT_Mobile_XDDP_NRT_autogen/mocs_compilation.cpp.s
+
 src/RTECAT_Mobile_Client.o: src/RTECAT_Mobile_Client.cpp.o
 
 .PHONY : src/RTECAT_Mobile_Client.o
@@ -419,6 +472,33 @@ src/mainwindow.cpp.s:
 	$(MAKE) -f CMakeFiles/RTECAT_Mobile_CTRL.dir/build.make CMakeFiles/RTECAT_Mobile_CTRL.dir/src/mainwindow.cpp.s
 .PHONY : src/mainwindow.cpp.s
 
+src/xddp_nrt.o: src/xddp_nrt.cpp.o
+
+.PHONY : src/xddp_nrt.o
+
+# target to build an object file
+src/xddp_nrt.cpp.o:
+	$(MAKE) -f CMakeFiles/RTECAT_Mobile_XDDP_NRT.dir/build.make CMakeFiles/RTECAT_Mobile_XDDP_NRT.dir/src/xddp_nrt.cpp.o
+.PHONY : src/xddp_nrt.cpp.o
+
+src/xddp_nrt.i: src/xddp_nrt.cpp.i
+
+.PHONY : src/xddp_nrt.i
+
+# target to preprocess a source file
+src/xddp_nrt.cpp.i:
+	$(MAKE) -f CMakeFiles/RTECAT_Mobile_XDDP_NRT.dir/build.make CMakeFiles/RTECAT_Mobile_XDDP_NRT.dir/src/xddp_nrt.cpp.i
+.PHONY : src/xddp_nrt.cpp.i
+
+src/xddp_nrt.s: src/xddp_nrt.cpp.s
+
+.PHONY : src/xddp_nrt.s
+
+# target to generate assembly for a file
+src/xddp_nrt.cpp.s:
+	$(MAKE) -f CMakeFiles/RTECAT_Mobile_XDDP_NRT.dir/build.make CMakeFiles/RTECAT_Mobile_XDDP_NRT.dir/src/xddp_nrt.cpp.s
+.PHONY : src/xddp_nrt.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -431,7 +511,9 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... RTECAT_Mobile_XDDP_NRT"
 	@echo "... RTECAT_Mobile_CTRL"
+	@echo "... RTECAT_Mobile_XDDP_NRT_autogen"
 	@echo "... RTECAT_Mobile_CTRL_autogen"
 	@echo "... EcatSystem"
 	@echo "... EcatSystem_autogen"
@@ -448,12 +530,18 @@ help:
 	@echo "... RTECAT_Mobile_CTRL_autogen/mocs_compilation.o"
 	@echo "... RTECAT_Mobile_CTRL_autogen/mocs_compilation.i"
 	@echo "... RTECAT_Mobile_CTRL_autogen/mocs_compilation.s"
+	@echo "... RTECAT_Mobile_XDDP_NRT_autogen/mocs_compilation.o"
+	@echo "... RTECAT_Mobile_XDDP_NRT_autogen/mocs_compilation.i"
+	@echo "... RTECAT_Mobile_XDDP_NRT_autogen/mocs_compilation.s"
 	@echo "... src/RTECAT_Mobile_Client.o"
 	@echo "... src/RTECAT_Mobile_Client.i"
 	@echo "... src/RTECAT_Mobile_Client.s"
 	@echo "... src/mainwindow.o"
 	@echo "... src/mainwindow.i"
 	@echo "... src/mainwindow.s"
+	@echo "... src/xddp_nrt.o"
+	@echo "... src/xddp_nrt.i"
+	@echo "... src/xddp_nrt.s"
 .PHONY : help
 
 

@@ -28,9 +28,19 @@
 			"EWIEGA46WW/moc_ServoAxis_Motor.cpp"
 		],
 		[
+			"/home/robot/robot_ws/RTECAT_Mobile/include/Robot/json_loader.h",
+			"MU",
+			"EWIEGA46WW/moc_json_loader.cpp"
+		],
+		[
 			"/home/robot/robot_ws/RTECAT_Mobile/include/Robot/liegroup_robotics.h",
 			"MU",
 			"EWIEGA46WW/moc_liegroup_robotics.cpp"
+		],
+		[
+			"/home/robot/robot_ws/RTECAT_Mobile/include/Robot/xddp_packet.h",
+			"MU",
+			"EWIEGA46WW/moc_xddp_packet.cpp"
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
@@ -49,6 +59,7 @@
 		"/home/robot/robot_ws/RTECAT_Mobile/build/include/Robot",
 		"/home/robot/robot_ws/RTECAT_Mobile/include/Robot",
 		"/home/robot/robot_ws/RTECAT_Mobile/bin/inc",
+		"/usr/src/linux-headers-5.4.239-xenomai-3.2.3+",
 		"/home/robot/robot_ws/RTECAT_Mobile/include/EcatSystem",
 		"/home/robot/robot_ws/RTECAT_Mobile/include/Interpolator",
 		"/home/robot/robot_ws/RTECAT_Mobile/include/QtWidgets",
