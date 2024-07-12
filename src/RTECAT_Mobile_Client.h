@@ -63,6 +63,7 @@ const int 	 zeroPos_mob[MOBILE_DRIVE_NUM] = {0,0,0,0};
 const INT32 	 gearRatio_mob[MOBILE_DRIVE_NUM] = {GEAR_RATIO_18,GEAR_RATIO_18,GEAR_RATIO_18,GEAR_RATIO_18};
 const int 	 dirQ_mob[MOBILE_DRIVE_NUM] = {1,1,-1,-1};
 const int 	 dirTau_mob[MOBILE_DRIVE_NUM] = {1,1,-1,-1};
+const double qdotLimit[MOBILE_DRIVE_NUM] = {2*PI, 2*PI, 2*PI, 2*PI};
 
 NRMKHelper::ServoAxis_Motor Axis_Mobile[MOBILE_DOF_NUM];
 

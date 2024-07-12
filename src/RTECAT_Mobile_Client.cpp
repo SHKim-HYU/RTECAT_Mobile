@@ -38,6 +38,7 @@ int initAxes()
 		Axis_Motor[i].setTauRateCur(((double)ecat_master.SDO_RATE_CURRENT(i+OFFSET_NUM))/1000.0);
 		Axis_Motor[i].setTauK(((double)ecat_master.SDO_TORQUE_CONSTANT(i+OFFSET_NUM))/1000000.0);
 		Axis_Motor[i].setZeroPos(zeroPos_mob[i]);
+		Axis_Motor[i].setVelLimits(qdotLimit[i], -qdotLimit[i]);
 
 		Axis_Motor[i].setDirQ(dirQ_mob[i]);
 		Axis_Motor[i].setDirTau(dirTau_mob[i]);
@@ -392,13 +393,13 @@ void safety_run(void *arg)
 		{
 			for(int i=0;i<MOBILE_DRIVE_NUM;i++)
 			{
-				if(Axis_Motor[i].isLimitReached())
-				{
-					for(int i=0;i<MOBILE_DRIVE_NUM;i++)
-						ecat_iservo[i].setServoOff();
-					rt_printf("Servo Off!!\n");
-					break;
-				}
+				// if(Axis_Motor[i].isLimitReached())
+				// {
+				// 	for(int i=0;i<MOBILE_DRIVE_NUM;i++)
+				// 		ecat_iservo[i].setServoOff();
+				// 	rt_printf("Servo Off!!\n");
+				// 	break;
+				// }
 			}
 		}
 	}
