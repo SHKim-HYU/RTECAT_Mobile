@@ -113,7 +113,7 @@ void readData()
     }
 
 	// Mapping status to Mobile Manipulator
-	info_mob.act.x_dot = J_mob * info_mob.act.q_dot;
+	info_mob.act.x_dot = Einv_mob * J_mob * info_mob.act.q_dot;
 	info_mob.act.x += info_mob.act.x_dot*period;
 
 	for(int i=0; i<MOBILE_DOF_NUM; i++)
@@ -211,7 +211,11 @@ void compute()
 	info_mob.act.R = cs_hyumob.getRMat();
 
 	Mob_Jacobian J_b = cs_hyumob.getJ_b();
-
+	
+	E_mob << cos(info_mob.nom.x(2)), sin(info_mob.nom.x(2)), 0,
+			-sin(info_mob.nom.x(2)), cos(info_mob.nom.x(2)), 0,
+			0, 0, 1;
+	Einv_mob = E_mob.transpose();
 }
 
 void control()
@@ -219,7 +223,7 @@ void control()
 
     double Kp = 0.1;
     double Kd = 0.01;
-	double Ki = 10;
+	double Ki = 0.1;
 	double Mb = 100;
 
 	// Mobile Base Controller
@@ -232,7 +236,7 @@ void control()
 
 		info_mob.des.F(i) = info_mob.nom.x_dot(i) + Kd*info_mob.des.edot(i) + Kp*info_mob.des.e(i) + Ki*info_mob.des.eint(i);
     }
-	info_mob.des.q_dot = Jinv_mob * info_mob.des.F;
+	info_mob.des.q_dot = Jinv_mob * E_mob * info_mob.des.F;
 	
 	// [Teleop controller]
 	des_int += info_mob.des.x_dot*period;
@@ -477,6 +481,7 @@ void odom_run(void *arg) {
 	size_t poolsz;
 	char buf[128];
 	size_t BUFLEN = sizeof(packet::Odometry);
+	Vector3d V_mob;
 	
 	struct packet::Odometry *odom_msg = (packet::Odometry *)malloc(BUFLEN);
 	
@@ -505,6 +510,7 @@ void odom_run(void *arg) {
 		if(system_ready)
 		{
 			Quaterniond quaternion(cs_nom_hyumob.getRMat());
+			V_mob = E_mob * info_mob.nom.x_dot;
 
 			odom_msg->pose.position.x = info_mob.nom.x(0);
 			odom_msg->pose.position.y = info_mob.nom.x(1);
@@ -512,9 +518,9 @@ void odom_run(void *arg) {
 			odom_msg->pose.orientation.y = quaternion.y();
 			odom_msg->pose.orientation.z = quaternion.z();
 			odom_msg->pose.orientation.w = quaternion.w();
-			odom_msg->twist.linear.x = info_mob.nom.x_dot(0);
-			odom_msg->twist.linear.y = info_mob.nom.x_dot(1);
-			odom_msg->twist.angular.z = info_mob.nom.x_dot(2);
+			odom_msg->twist.linear.x = V_mob(0);
+			odom_msg->twist.linear.y = V_mob(1);
+			odom_msg->twist.angular.z = V_mob(2);
 			
 			ret = __cobalt_sendto(socket, odom_msg, BUFLEN, 0, (struct sockaddr *) &addr, addrlen);
 			// ret = __cobalt_sendto(socket, odom_msg, BUFLEN, 0, NULL, 0);
@@ -538,7 +544,8 @@ void cmd_vel_run(void *arg) {
 	size_t poolsz;
 	char buf[128];
 	size_t BUFLEN = sizeof(packet::Twist);
-	
+	Vector3d V_mob;
+
 	struct packet::Twist *twist_msg = (packet::Twist *)malloc(BUFLEN);
 
     rt_task_set_periodic(NULL, TM_NOW, 1*cycle_ns); // 100ms
@@ -572,10 +579,9 @@ void cmd_vel_run(void *arg) {
 		// else{
 		if(ret >0)
 		{
-			// printf("ret: %d\n",ret);
-			// printf("\tTwist\n");
-			// printf("\tx: %lf, y: %lf, z: %lf\n\n", twist_msg->linear.x, twist_msg->linear.y, twist_msg->angular.z);
-			info_mob.des.x_dot << twist_msg->linear.x , twist_msg->linear.y, twist_msg->angular.z;
+			V_mob << twist_msg->linear.x , twist_msg->linear.y, twist_msg->angular.z;
+			info_mob.des.x_dot = Einv_mob * V_mob;
+			// info_mob.des.x_dot << twist_msg->linear.x , twist_msg->linear.y, twist_msg->angular.z;
 		}
 		
 	}

@@ -97,7 +97,7 @@ Mob_JVec Ki_n;
 Wheel_pinvJacobian Jinv_mob;
 Wheel_Jacobian J_mob;
 
-
+Matrix3d E_mob, Einv_mob;
 
 
 #endif  // /* RTECAT_MOBILEMANIPULATOR_CLIENT_H */
