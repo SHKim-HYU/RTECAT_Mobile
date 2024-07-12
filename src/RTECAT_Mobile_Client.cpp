@@ -545,7 +545,8 @@ void cmd_vel_run(void *arg) {
 	size_t poolsz;
 	char buf[128];
 	size_t BUFLEN = sizeof(packet::Twist);
-	Vector3d V_mob;
+	Vector3d V_mob, V_mob_buf;
+	V_mob_buf = Vector3d::Zero();
 
 	struct packet::Twist *twist_msg = (packet::Twist *)malloc(BUFLEN);
 
@@ -581,8 +582,10 @@ void cmd_vel_run(void *arg) {
 		if(ret >0)
 		{
 			V_mob << twist_msg->linear.x , twist_msg->linear.y, twist_msg->angular.z;
+			
+			if((V_mob.norm()-V_mob.norm())>0.3)
+			
 			info_mob.des.x_dot = Einv_mob * V_mob;
-			// info_mob.des.x_dot << twist_msg->linear.x , twist_msg->linear.y, twist_msg->angular.z;
 		}
 		
 	}
