@@ -7,6 +7,7 @@ CS_Mobile cs_nom_hyumob;
 
 RT_TASK safety_task;
 RT_TASK motor_task;
+RT_TASK bullet_task;
 RT_TASK print_task;
 RT_TASK odom_writer;
 RT_TASK cmd_vel_listener;
@@ -14,6 +15,15 @@ RT_TASK cmd_vel_listener;
 using namespace std;
 using namespace lr;
 
+// Mob_JVec convFilter(Mob_JVec _q_dot) 
+// {
+// 	int windowSize = 500;
+
+// 	sumVel.
+
+// 	Vector3d avg = sumVel/windowSize;
+// 	return 
+// }
 
 bool isSlaveInit()
 {
@@ -77,6 +87,7 @@ int initAxes()
 				 1.0/(-BASE_l-BASE_w), 1.0/(-BASE_l-BASE_w), 1.0/(BASE_l+BASE_w), 1.0/(BASE_l+BASE_w);
 	J_mob = J_mob*WHEEL_RADIUS/4.0;
 
+	sumVel = Vector3d::Zero();
 
 	return 1;
 }
@@ -255,7 +266,7 @@ void control()
 void writeData()
 {
     for(int i=0;i<=MOBILE_DRIVE_NUM;i++){
-        ecat_iservo[i].writeVelocity(Axis_Motor[i].getDesVelInRPM(info_mob.des.q_dot(i)));
+        // ecat_iservo[i].writeVelocity(Axis_Motor[i].getDesVelInRPM(info_mob.des.q_dot(i)));
         
 		ecat_master.RxUpdate();
 	}
@@ -473,6 +484,76 @@ static void fail(const char *reason)
 	exit(EXIT_FAILURE);
 }
 
+
+// Bullet task
+void bullet_run(void *arg)
+{
+	struct sockaddr_ipc addr_nom, addr_act;
+	uint addr_nom_len = sizeof(addr_nom);
+	uint addr_act_len = sizeof(addr_act);
+	int socket_nom, socket_act;
+	int ret_nom, ret_act;
+	struct timespec ts;
+	size_t poolsz;
+	size_t BUFLEN = sizeof(packet::JointState);
+
+	struct packet::JointState *bullet_nom_msg = (packet::JointState *)malloc(BUFLEN);
+	struct packet::JointState *bullet_act_msg = (packet::JointState *)malloc(BUFLEN);
+	
+    rt_task_set_periodic(NULL, TM_NOW, 100*cycle_ns); // 100ms
+
+	socket_nom = __cobalt_socket(AF_RTIPC, SOCK_DGRAM, IPCPROTO_XDDP);
+	if (socket_nom < 0) {
+		perror("socket_nom");
+		exit(EXIT_FAILURE);
+	}
+	socket_act = __cobalt_socket(AF_RTIPC, SOCK_DGRAM, IPCPROTO_XDDP);
+	if (socket_act < 0) {
+		perror("socket_act");
+		exit(EXIT_FAILURE);
+	}
+
+	poolsz = 16384; /* bytes */
+	if( __cobalt_setsockopt(socket_nom, SOL_XDDP, XDDP_POOLSZ, &poolsz, sizeof(poolsz))==-1)
+		fail("setsockopt");
+
+	memset(&addr_nom, 0, sizeof(addr_nom));
+	addr_nom.sipc_family = AF_RTIPC;
+	addr_nom.sipc_port = XDDP_PORT_SIM;
+
+	if( __cobalt_setsockopt(socket_act, SOL_XDDP, XDDP_POOLSZ, &poolsz, sizeof(poolsz))==-1)
+		fail("setsockopt");
+
+	memset(&addr_act, 0, sizeof(addr_act));
+	addr_act.sipc_family = AF_RTIPC;
+	addr_act.sipc_port = XDDP_PORT_ACT;
+
+	if(__cobalt_bind(socket_nom, (struct sockaddr *)&addr_nom, sizeof(addr_nom)) == -1)
+		fail("bind");
+	if(__cobalt_bind(socket_act, (struct sockaddr *)&addr_act, sizeof(addr_act)) == -1)
+		fail("bind");
+
+    while(1) 
+    {
+        rt_task_wait_period(NULL); //wait for next cycle
+		if(system_ready)
+		{
+			Quaterniond quaternion(cs_nom_hyumob.getRMat());		
+			for(int i=0; i<MOBILE_DOF_NUM; i++)
+			{
+				bullet_nom_msg->position[i] = info_mob.nom.x(i);
+				bullet_act_msg->position[i] = info_mob.act.x(i);
+			}
+			ret_nom = __cobalt_sendto(socket_nom, bullet_nom_msg, BUFLEN, 0, (struct sockaddr *) &addr_nom, addr_nom_len);
+			ret_act = __cobalt_sendto(socket_act, bullet_act_msg, BUFLEN, 0, (struct sockaddr *) &addr_act, addr_act_len);
+		}
+	}
+	close(socket_nom);
+	close(socket_act);
+
+	return;
+}
+
 void odom_run(void *arg) {
     struct sockaddr_ipc addr;
 	uint addrlen = sizeof(addr);
@@ -583,9 +664,11 @@ void cmd_vel_run(void *arg) {
 		{
 			V_mob << twist_msg->linear.x , twist_msg->linear.y, twist_msg->angular.z;
 			
-			if((V_mob.norm()-V_mob.norm())>0.3)
-			
+			// if((V_mob.norm()-V_mob_buf.norm())>0.3)
+
+
 			info_mob.des.x_dot = Einv_mob * V_mob;
+			V_mob_buf = V_mob;
 		}
 		
 	}
@@ -598,6 +681,7 @@ void cmd_vel_run(void *arg) {
 void signal_handler(int signum)
 {
     rt_task_delete(&motor_task);
+	rt_task_delete(&bullet_task);
     rt_task_delete(&print_task);
     rt_task_delete(&odom_writer);
 	rt_task_delete(&cmd_vel_listener);
@@ -667,9 +751,13 @@ int main(int argc, char *argv[])
     rt_task_set_affinity(&motor_task, &cpuset_rt2);
     rt_task_start(&motor_task, &motor_run, NULL);
 
+	rt_task_create(&bullet_task, "bullet_task", 0, 60, 0);
+    // rt_task_set_affinity(&bullet_task, &cpuset_rt1);
+    rt_task_start(&bullet_task, &bullet_run, NULL);
+
     rt_task_create(&print_task, "print_task", 0, 70, 0);
     rt_task_set_affinity(&print_task, &cpuset_rt1);
-    rt_task_start(&print_task, &print_run, NULL);
+    // rt_task_start(&print_task, &print_run, NULL);
 
     // Must pause here
     pause();

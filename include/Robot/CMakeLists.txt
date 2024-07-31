@@ -6,8 +6,38 @@ set(CMAKE_DEBUG_POSTFIX "d")
 
 file(GLOB SOURCE_FILES "*.cpp" "*.h")
 
+#bullet3
+set(BULLET_PHYSICS_SOURCE_DIR  "/opt/bullet3")
+include_directories(
+    ${BULLET_PHYSICS_SOURCE_DIR}/src
+    ${BULLET_PHYSICS_SOURCE_DIR}/examples
+    ${BULLET_PHYSICS_SOURCE_DIR}/examples/SharedMemory
+    ${BULLET_PHYSICS_SOURCE_DIR}/examples/RobotSimulator		
+    ${BULLET_PHYSICS_SOURCE_DIR}/examples/ThirdPartyLibs
+    ${BULLET_PHYSICS_SOURCE_DIR}/examples/ThirdPartyLibs/enet/include
+    ${BULLET_PHYSICS_SOURCE_DIR}/examples/ThirdPartyLibs/clsocket/src
+    ${BULLET_PHYSICS_SOURCE_DIR}/examples/CommonInterfaces
+)
+SET(RobotSimulator_SRCS_GUI
+	${BULLET_PHYSICS_SOURCE_DIR}/examples/RobotSimulator/b3RobotSimulatorClientAPI.cpp
+	${BULLET_PHYSICS_SOURCE_DIR}/examples/RobotSimulator/b3RobotSimulatorClientAPI.h	
+    ${BULLET_PHYSICS_SOURCE_DIR}/examples/RobotSimulator/MinitaurSetup.cpp
+	${BULLET_PHYSICS_SOURCE_DIR}/examples/RobotSimulator/MinitaurSetup.h
+	${BULLET_PHYSICS_SOURCE_DIR}/examples/ExampleBrowser/InProcessExampleBrowser.cpp
+	${BULLET_PHYSICS_SOURCE_DIR}/examples/SharedMemory/GraphicsServerExample.cpp
+	${BULLET_PHYSICS_SOURCE_DIR}/examples/SharedMemory/GraphicsClientExample.cpp
+	${BULLET_PHYSICS_SOURCE_DIR}/examples/SharedMemory/RemoteGUIHelper.cpp
+	${BULLET_PHYSICS_SOURCE_DIR}/examples/SharedMemory/GraphicsServerExample.h
+	${BULLET_PHYSICS_SOURCE_DIR}/examples/SharedMemory/GraphicsClientExample.h
+	${BULLET_PHYSICS_SOURCE_DIR}/examples/SharedMemory/RemoteGUIHelper.h
+	${BULLET_PHYSICS_SOURCE_DIR}/examples/SharedMemory/GraphicsSharedMemoryCommands.h
+	${BULLET_PHYSICS_SOURCE_DIR}/examples/SharedMemory/GraphicsSharedMemoryPublic.h
+	${BULLET_PHYSICS_SOURCE_DIR}/examples/SharedMemory/PhysicsServerExample.cpp
+	${BULLET_PHYSICS_SOURCE_DIR}/examples/SharedMemory/PhysicsServerExampleBullet2.cpp
+	${BULLET_PHYSICS_SOURCE_DIR}/examples/SharedMemory/SharedMemoryInProcessPhysicsC_API.cpp	
+)
 
-add_library(${PROJECT_NAME} SHARED ${SOURCE_FILES})
+add_library(${PROJECT_NAME} SHARED ${SOURCE_FILES} ${RobotSimulator_SRCS_GUI})
 add_library(sub::Robot ALIAS ${PROJECT_NAME})
 
 set_target_properties(${PROJECT_NAME} PROPERTIES LINKER_LANGUAGE CXX)
@@ -42,6 +72,15 @@ if (CASADI_FOUND)
     target_include_directories(${PROJECT_NAME} PUBLIC ${CASADI_INCLUDE_DIR})
     target_link_libraries(${PROJECT_NAME} ${CASADI_LIBRARIES} dl)
 endif ()
+
+add_compile_definitions(__BULLET__)
+find_package(Bullet REQUIRED)
+if (BULLET_FOUND)
+    MESSAGE(STATUS "BULLET_INCLUDE_DIRS = ${BULLET_INCLUDE_DIRS}")
+    MESSAGE(STATUS "BULLET_LIBRARIES = ${BULLET_LIBRARIES}")
+    target_include_directories(${PROJECT_NAME} PUBLIC ${BULLET_INCLUDE_DIRS})
+    target_link_libraries(${PROJECT_NAME} ${BULLET_LIBRARIES})
+endif()
 
 install(TARGETS ${PROJECT_MANE}
         ARCHIVE DESTINATION lib

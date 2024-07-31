@@ -9,7 +9,7 @@
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
 	"INCLUDE_DIR" : "/home/robot/robot_ws/RTECAT_Mobile/build/RTECAT_Mobile_XDDP_NRT_autogen/include",
 	"MOC_COMPILATION_FILE" : "/home/robot/robot_ws/RTECAT_Mobile/build/RTECAT_Mobile_XDDP_NRT_autogen/mocs_compilation.cpp",
-	"MOC_DEFINITIONS" : [ "__CASADI__" ],
+	"MOC_DEFINITIONS" : [ "__BULLET__", "__CASADI__" ],
 	"MOC_DEPEND_FILTERS" : 
 	[
 		[
@@ -28,6 +28,14 @@
 		"/home/robot/robot_ws/RTECAT_Mobile/include/Robot",
 		"/home/robot/robot_ws/RTECAT_Mobile/include/QtWidgets",
 		"/home/robot/robot_ws/RTECAT_Mobile/include/DarkStyleWindow",
+		"/opt/bullet3/src",
+		"/opt/bullet3/examples",
+		"/opt/bullet3/examples/SharedMemory",
+		"/opt/bullet3/examples/RobotSimulator",
+		"/opt/bullet3/examples/ThirdPartyLibs",
+		"/opt/bullet3/examples/ThirdPartyLibs/enet/include",
+		"/opt/bullet3/examples/ThirdPartyLibs/clsocket/src",
+		"/opt/bullet3/examples/CommonInterfaces",
 		"/usr/include/c++/9",
 		"/usr/include/x86_64-linux-gnu/c++/9",
 		"/usr/include/c++/9/backward",

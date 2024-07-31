@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/g++
 CXX_FLAGS =  -std=c++17 -Wall -Wextra -fPIC -O2 -DNDEBUG -fPIC   -std=c++17
 
-CXX_DEFINES = -DRobot_EXPORTS -D__CASADI__
+CXX_DEFINES = -DRobot_EXPORTS -D__BULLET__ -D__CASADI__
 
-CXX_INCLUDES = -I/home/robot/robot_ws/RTECAT_Mobile/build/include/Robot -I/home/robot/robot_ws/RTECAT_Mobile/include/Robot -I/home/robot/robot_ws/RTECAT_Mobile/build/include/Robot/Robot_autogen/include -I/home/robot/robot_ws/RTECAT_Mobile/bin/inc -I/usr/src/linux-headers-5.4.239-xenomai-3.2.3+ -I/home/robot/robot_ws/RTECAT_Mobile/include/EcatSystem -I/home/robot/robot_ws/RTECAT_Mobile/include/Interpolator -I/home/robot/robot_ws/RTECAT_Mobile/include/QtWidgets -I/home/robot/robot_ws/RTECAT_Mobile/include/DarkStyleWindow -I/opt/casadi/include -I/opt/casadi/include/casadi -isystem /usr/include/eigen3 -isystem /usr/include/jsoncpp 
+CXX_INCLUDES = -I/home/robot/robot_ws/RTECAT_Mobile/build/include/Robot -I/home/robot/robot_ws/RTECAT_Mobile/include/Robot -I/home/robot/robot_ws/RTECAT_Mobile/build/include/Robot/Robot_autogen/include -I/home/robot/robot_ws/RTECAT_Mobile/bin/inc -I/usr/src/linux-headers-5.4.239-xenomai-3.2.3+ -I/home/robot/robot_ws/RTECAT_Mobile/include/EcatSystem -I/home/robot/robot_ws/RTECAT_Mobile/include/Interpolator -I/home/robot/robot_ws/RTECAT_Mobile/include/QtWidgets -I/home/robot/robot_ws/RTECAT_Mobile/include/DarkStyleWindow -I/opt/bullet3/src -I/opt/bullet3/examples -I/opt/bullet3/examples/SharedMemory -I/opt/bullet3/examples/RobotSimulator -I/opt/bullet3/examples/ThirdPartyLibs -I/opt/bullet3/examples/ThirdPartyLibs/enet/include -I/opt/bullet3/examples/ThirdPartyLibs/clsocket/src -I/opt/bullet3/examples/CommonInterfaces -I/opt/casadi/include -I/opt/casadi/include/casadi -I/usr/local/include/bullet -isystem /usr/include/eigen3 -isystem /usr/include/jsoncpp 
 

@@ -96,9 +96,22 @@ include/Robot/CMakeFiles/Robot.dir/LieOperator.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Robot.dir/LieOperator.cpp.s"
 	cd /home/robot/robot_ws/RTECAT_Mobile/build/include/Robot && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/robot/robot_ws/RTECAT_Mobile/include/Robot/LieOperator.cpp -o CMakeFiles/Robot.dir/LieOperator.cpp.s
 
+include/Robot/CMakeFiles/Robot.dir/bullet_mobile.cpp.o: include/Robot/CMakeFiles/Robot.dir/flags.make
+include/Robot/CMakeFiles/Robot.dir/bullet_mobile.cpp.o: ../include/Robot/bullet_mobile.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/robot/robot_ws/RTECAT_Mobile/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object include/Robot/CMakeFiles/Robot.dir/bullet_mobile.cpp.o"
+	cd /home/robot/robot_ws/RTECAT_Mobile/build/include/Robot && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Robot.dir/bullet_mobile.cpp.o -c /home/robot/robot_ws/RTECAT_Mobile/include/Robot/bullet_mobile.cpp
+
+include/Robot/CMakeFiles/Robot.dir/bullet_mobile.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Robot.dir/bullet_mobile.cpp.i"
+	cd /home/robot/robot_ws/RTECAT_Mobile/build/include/Robot && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/robot/robot_ws/RTECAT_Mobile/include/Robot/bullet_mobile.cpp > CMakeFiles/Robot.dir/bullet_mobile.cpp.i
+
+include/Robot/CMakeFiles/Robot.dir/bullet_mobile.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Robot.dir/bullet_mobile.cpp.s"
+	cd /home/robot/robot_ws/RTECAT_Mobile/build/include/Robot && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/robot/robot_ws/RTECAT_Mobile/include/Robot/bullet_mobile.cpp -o CMakeFiles/Robot.dir/bullet_mobile.cpp.s
+
 include/Robot/CMakeFiles/Robot.dir/liegroup_robotics.cpp.o: include/Robot/CMakeFiles/Robot.dir/flags.make
 include/Robot/CMakeFiles/Robot.dir/liegroup_robotics.cpp.o: ../include/Robot/liegroup_robotics.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/robot/robot_ws/RTECAT_Mobile/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object include/Robot/CMakeFiles/Robot.dir/liegroup_robotics.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/robot/robot_ws/RTECAT_Mobile/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object include/Robot/CMakeFiles/Robot.dir/liegroup_robotics.cpp.o"
 	cd /home/robot/robot_ws/RTECAT_Mobile/build/include/Robot && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Robot.dir/liegroup_robotics.cpp.o -c /home/robot/robot_ws/RTECAT_Mobile/include/Robot/liegroup_robotics.cpp
 
 include/Robot/CMakeFiles/Robot.dir/liegroup_robotics.cpp.i: cmake_force
@@ -109,12 +122,139 @@ include/Robot/CMakeFiles/Robot.dir/liegroup_robotics.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Robot.dir/liegroup_robotics.cpp.s"
 	cd /home/robot/robot_ws/RTECAT_Mobile/build/include/Robot && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/robot/robot_ws/RTECAT_Mobile/include/Robot/liegroup_robotics.cpp -o CMakeFiles/Robot.dir/liegroup_robotics.cpp.s
 
+include/Robot/CMakeFiles/Robot.dir/opt/bullet3/examples/RobotSimulator/b3RobotSimulatorClientAPI.cpp.o: include/Robot/CMakeFiles/Robot.dir/flags.make
+include/Robot/CMakeFiles/Robot.dir/opt/bullet3/examples/RobotSimulator/b3RobotSimulatorClientAPI.cpp.o: /opt/bullet3/examples/RobotSimulator/b3RobotSimulatorClientAPI.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/robot/robot_ws/RTECAT_Mobile/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object include/Robot/CMakeFiles/Robot.dir/opt/bullet3/examples/RobotSimulator/b3RobotSimulatorClientAPI.cpp.o"
+	cd /home/robot/robot_ws/RTECAT_Mobile/build/include/Robot && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Robot.dir/opt/bullet3/examples/RobotSimulator/b3RobotSimulatorClientAPI.cpp.o -c /opt/bullet3/examples/RobotSimulator/b3RobotSimulatorClientAPI.cpp
+
+include/Robot/CMakeFiles/Robot.dir/opt/bullet3/examples/RobotSimulator/b3RobotSimulatorClientAPI.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Robot.dir/opt/bullet3/examples/RobotSimulator/b3RobotSimulatorClientAPI.cpp.i"
+	cd /home/robot/robot_ws/RTECAT_Mobile/build/include/Robot && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/bullet3/examples/RobotSimulator/b3RobotSimulatorClientAPI.cpp > CMakeFiles/Robot.dir/opt/bullet3/examples/RobotSimulator/b3RobotSimulatorClientAPI.cpp.i
+
+include/Robot/CMakeFiles/Robot.dir/opt/bullet3/examples/RobotSimulator/b3RobotSimulatorClientAPI.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Robot.dir/opt/bullet3/examples/RobotSimulator/b3RobotSimulatorClientAPI.cpp.s"
+	cd /home/robot/robot_ws/RTECAT_Mobile/build/include/Robot && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/bullet3/examples/RobotSimulator/b3RobotSimulatorClientAPI.cpp -o CMakeFiles/Robot.dir/opt/bullet3/examples/RobotSimulator/b3RobotSimulatorClientAPI.cpp.s
+
+include/Robot/CMakeFiles/Robot.dir/opt/bullet3/examples/RobotSimulator/MinitaurSetup.cpp.o: include/Robot/CMakeFiles/Robot.dir/flags.make
+include/Robot/CMakeFiles/Robot.dir/opt/bullet3/examples/RobotSimulator/MinitaurSetup.cpp.o: /opt/bullet3/examples/RobotSimulator/MinitaurSetup.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/robot/robot_ws/RTECAT_Mobile/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object include/Robot/CMakeFiles/Robot.dir/opt/bullet3/examples/RobotSimulator/MinitaurSetup.cpp.o"
+	cd /home/robot/robot_ws/RTECAT_Mobile/build/include/Robot && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Robot.dir/opt/bullet3/examples/RobotSimulator/MinitaurSetup.cpp.o -c /opt/bullet3/examples/RobotSimulator/MinitaurSetup.cpp
+
+include/Robot/CMakeFiles/Robot.dir/opt/bullet3/examples/RobotSimulator/MinitaurSetup.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Robot.dir/opt/bullet3/examples/RobotSimulator/MinitaurSetup.cpp.i"
+	cd /home/robot/robot_ws/RTECAT_Mobile/build/include/Robot && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/bullet3/examples/RobotSimulator/MinitaurSetup.cpp > CMakeFiles/Robot.dir/opt/bullet3/examples/RobotSimulator/MinitaurSetup.cpp.i
+
+include/Robot/CMakeFiles/Robot.dir/opt/bullet3/examples/RobotSimulator/MinitaurSetup.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Robot.dir/opt/bullet3/examples/RobotSimulator/MinitaurSetup.cpp.s"
+	cd /home/robot/robot_ws/RTECAT_Mobile/build/include/Robot && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/bullet3/examples/RobotSimulator/MinitaurSetup.cpp -o CMakeFiles/Robot.dir/opt/bullet3/examples/RobotSimulator/MinitaurSetup.cpp.s
+
+include/Robot/CMakeFiles/Robot.dir/opt/bullet3/examples/ExampleBrowser/InProcessExampleBrowser.cpp.o: include/Robot/CMakeFiles/Robot.dir/flags.make
+include/Robot/CMakeFiles/Robot.dir/opt/bullet3/examples/ExampleBrowser/InProcessExampleBrowser.cpp.o: /opt/bullet3/examples/ExampleBrowser/InProcessExampleBrowser.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/robot/robot_ws/RTECAT_Mobile/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object include/Robot/CMakeFiles/Robot.dir/opt/bullet3/examples/ExampleBrowser/InProcessExampleBrowser.cpp.o"
+	cd /home/robot/robot_ws/RTECAT_Mobile/build/include/Robot && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Robot.dir/opt/bullet3/examples/ExampleBrowser/InProcessExampleBrowser.cpp.o -c /opt/bullet3/examples/ExampleBrowser/InProcessExampleBrowser.cpp
+
+include/Robot/CMakeFiles/Robot.dir/opt/bullet3/examples/ExampleBrowser/InProcessExampleBrowser.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Robot.dir/opt/bullet3/examples/ExampleBrowser/InProcessExampleBrowser.cpp.i"
+	cd /home/robot/robot_ws/RTECAT_Mobile/build/include/Robot && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/bullet3/examples/ExampleBrowser/InProcessExampleBrowser.cpp > CMakeFiles/Robot.dir/opt/bullet3/examples/ExampleBrowser/InProcessExampleBrowser.cpp.i
+
+include/Robot/CMakeFiles/Robot.dir/opt/bullet3/examples/ExampleBrowser/InProcessExampleBrowser.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Robot.dir/opt/bullet3/examples/ExampleBrowser/InProcessExampleBrowser.cpp.s"
+	cd /home/robot/robot_ws/RTECAT_Mobile/build/include/Robot && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/bullet3/examples/ExampleBrowser/InProcessExampleBrowser.cpp -o CMakeFiles/Robot.dir/opt/bullet3/examples/ExampleBrowser/InProcessExampleBrowser.cpp.s
+
+include/Robot/CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/GraphicsServerExample.cpp.o: include/Robot/CMakeFiles/Robot.dir/flags.make
+include/Robot/CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/GraphicsServerExample.cpp.o: /opt/bullet3/examples/SharedMemory/GraphicsServerExample.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/robot/robot_ws/RTECAT_Mobile/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object include/Robot/CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/GraphicsServerExample.cpp.o"
+	cd /home/robot/robot_ws/RTECAT_Mobile/build/include/Robot && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/GraphicsServerExample.cpp.o -c /opt/bullet3/examples/SharedMemory/GraphicsServerExample.cpp
+
+include/Robot/CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/GraphicsServerExample.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/GraphicsServerExample.cpp.i"
+	cd /home/robot/robot_ws/RTECAT_Mobile/build/include/Robot && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/bullet3/examples/SharedMemory/GraphicsServerExample.cpp > CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/GraphicsServerExample.cpp.i
+
+include/Robot/CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/GraphicsServerExample.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/GraphicsServerExample.cpp.s"
+	cd /home/robot/robot_ws/RTECAT_Mobile/build/include/Robot && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/bullet3/examples/SharedMemory/GraphicsServerExample.cpp -o CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/GraphicsServerExample.cpp.s
+
+include/Robot/CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/GraphicsClientExample.cpp.o: include/Robot/CMakeFiles/Robot.dir/flags.make
+include/Robot/CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/GraphicsClientExample.cpp.o: /opt/bullet3/examples/SharedMemory/GraphicsClientExample.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/robot/robot_ws/RTECAT_Mobile/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object include/Robot/CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/GraphicsClientExample.cpp.o"
+	cd /home/robot/robot_ws/RTECAT_Mobile/build/include/Robot && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/GraphicsClientExample.cpp.o -c /opt/bullet3/examples/SharedMemory/GraphicsClientExample.cpp
+
+include/Robot/CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/GraphicsClientExample.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/GraphicsClientExample.cpp.i"
+	cd /home/robot/robot_ws/RTECAT_Mobile/build/include/Robot && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/bullet3/examples/SharedMemory/GraphicsClientExample.cpp > CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/GraphicsClientExample.cpp.i
+
+include/Robot/CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/GraphicsClientExample.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/GraphicsClientExample.cpp.s"
+	cd /home/robot/robot_ws/RTECAT_Mobile/build/include/Robot && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/bullet3/examples/SharedMemory/GraphicsClientExample.cpp -o CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/GraphicsClientExample.cpp.s
+
+include/Robot/CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/RemoteGUIHelper.cpp.o: include/Robot/CMakeFiles/Robot.dir/flags.make
+include/Robot/CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/RemoteGUIHelper.cpp.o: /opt/bullet3/examples/SharedMemory/RemoteGUIHelper.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/robot/robot_ws/RTECAT_Mobile/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object include/Robot/CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/RemoteGUIHelper.cpp.o"
+	cd /home/robot/robot_ws/RTECAT_Mobile/build/include/Robot && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/RemoteGUIHelper.cpp.o -c /opt/bullet3/examples/SharedMemory/RemoteGUIHelper.cpp
+
+include/Robot/CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/RemoteGUIHelper.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/RemoteGUIHelper.cpp.i"
+	cd /home/robot/robot_ws/RTECAT_Mobile/build/include/Robot && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/bullet3/examples/SharedMemory/RemoteGUIHelper.cpp > CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/RemoteGUIHelper.cpp.i
+
+include/Robot/CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/RemoteGUIHelper.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/RemoteGUIHelper.cpp.s"
+	cd /home/robot/robot_ws/RTECAT_Mobile/build/include/Robot && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/bullet3/examples/SharedMemory/RemoteGUIHelper.cpp -o CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/RemoteGUIHelper.cpp.s
+
+include/Robot/CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/PhysicsServerExample.cpp.o: include/Robot/CMakeFiles/Robot.dir/flags.make
+include/Robot/CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/PhysicsServerExample.cpp.o: /opt/bullet3/examples/SharedMemory/PhysicsServerExample.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/robot/robot_ws/RTECAT_Mobile/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object include/Robot/CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/PhysicsServerExample.cpp.o"
+	cd /home/robot/robot_ws/RTECAT_Mobile/build/include/Robot && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/PhysicsServerExample.cpp.o -c /opt/bullet3/examples/SharedMemory/PhysicsServerExample.cpp
+
+include/Robot/CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/PhysicsServerExample.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/PhysicsServerExample.cpp.i"
+	cd /home/robot/robot_ws/RTECAT_Mobile/build/include/Robot && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/bullet3/examples/SharedMemory/PhysicsServerExample.cpp > CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/PhysicsServerExample.cpp.i
+
+include/Robot/CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/PhysicsServerExample.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/PhysicsServerExample.cpp.s"
+	cd /home/robot/robot_ws/RTECAT_Mobile/build/include/Robot && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/bullet3/examples/SharedMemory/PhysicsServerExample.cpp -o CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/PhysicsServerExample.cpp.s
+
+include/Robot/CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/PhysicsServerExampleBullet2.cpp.o: include/Robot/CMakeFiles/Robot.dir/flags.make
+include/Robot/CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/PhysicsServerExampleBullet2.cpp.o: /opt/bullet3/examples/SharedMemory/PhysicsServerExampleBullet2.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/robot/robot_ws/RTECAT_Mobile/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object include/Robot/CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/PhysicsServerExampleBullet2.cpp.o"
+	cd /home/robot/robot_ws/RTECAT_Mobile/build/include/Robot && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/PhysicsServerExampleBullet2.cpp.o -c /opt/bullet3/examples/SharedMemory/PhysicsServerExampleBullet2.cpp
+
+include/Robot/CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/PhysicsServerExampleBullet2.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/PhysicsServerExampleBullet2.cpp.i"
+	cd /home/robot/robot_ws/RTECAT_Mobile/build/include/Robot && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/bullet3/examples/SharedMemory/PhysicsServerExampleBullet2.cpp > CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/PhysicsServerExampleBullet2.cpp.i
+
+include/Robot/CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/PhysicsServerExampleBullet2.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/PhysicsServerExampleBullet2.cpp.s"
+	cd /home/robot/robot_ws/RTECAT_Mobile/build/include/Robot && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/bullet3/examples/SharedMemory/PhysicsServerExampleBullet2.cpp -o CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/PhysicsServerExampleBullet2.cpp.s
+
+include/Robot/CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/SharedMemoryInProcessPhysicsC_API.cpp.o: include/Robot/CMakeFiles/Robot.dir/flags.make
+include/Robot/CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/SharedMemoryInProcessPhysicsC_API.cpp.o: /opt/bullet3/examples/SharedMemory/SharedMemoryInProcessPhysicsC_API.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/robot/robot_ws/RTECAT_Mobile/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object include/Robot/CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/SharedMemoryInProcessPhysicsC_API.cpp.o"
+	cd /home/robot/robot_ws/RTECAT_Mobile/build/include/Robot && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/SharedMemoryInProcessPhysicsC_API.cpp.o -c /opt/bullet3/examples/SharedMemory/SharedMemoryInProcessPhysicsC_API.cpp
+
+include/Robot/CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/SharedMemoryInProcessPhysicsC_API.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/SharedMemoryInProcessPhysicsC_API.cpp.i"
+	cd /home/robot/robot_ws/RTECAT_Mobile/build/include/Robot && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/bullet3/examples/SharedMemory/SharedMemoryInProcessPhysicsC_API.cpp > CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/SharedMemoryInProcessPhysicsC_API.cpp.i
+
+include/Robot/CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/SharedMemoryInProcessPhysicsC_API.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/SharedMemoryInProcessPhysicsC_API.cpp.s"
+	cd /home/robot/robot_ws/RTECAT_Mobile/build/include/Robot && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/bullet3/examples/SharedMemory/SharedMemoryInProcessPhysicsC_API.cpp -o CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/SharedMemoryInProcessPhysicsC_API.cpp.s
+
 # Object files for target Robot
 Robot_OBJECTS = \
 "CMakeFiles/Robot.dir/Robot_autogen/mocs_compilation.cpp.o" \
 "CMakeFiles/Robot.dir/CS_mobile.cpp.o" \
 "CMakeFiles/Robot.dir/LieOperator.cpp.o" \
-"CMakeFiles/Robot.dir/liegroup_robotics.cpp.o"
+"CMakeFiles/Robot.dir/bullet_mobile.cpp.o" \
+"CMakeFiles/Robot.dir/liegroup_robotics.cpp.o" \
+"CMakeFiles/Robot.dir/opt/bullet3/examples/RobotSimulator/b3RobotSimulatorClientAPI.cpp.o" \
+"CMakeFiles/Robot.dir/opt/bullet3/examples/RobotSimulator/MinitaurSetup.cpp.o" \
+"CMakeFiles/Robot.dir/opt/bullet3/examples/ExampleBrowser/InProcessExampleBrowser.cpp.o" \
+"CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/GraphicsServerExample.cpp.o" \
+"CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/GraphicsClientExample.cpp.o" \
+"CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/RemoteGUIHelper.cpp.o" \
+"CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/PhysicsServerExample.cpp.o" \
+"CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/PhysicsServerExampleBullet2.cpp.o" \
+"CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/SharedMemoryInProcessPhysicsC_API.cpp.o"
 
 # External object files for target Robot
 Robot_EXTERNAL_OBJECTS =
@@ -122,7 +262,17 @@ Robot_EXTERNAL_OBJECTS =
 include/Robot/libRobot.so: include/Robot/CMakeFiles/Robot.dir/Robot_autogen/mocs_compilation.cpp.o
 include/Robot/libRobot.so: include/Robot/CMakeFiles/Robot.dir/CS_mobile.cpp.o
 include/Robot/libRobot.so: include/Robot/CMakeFiles/Robot.dir/LieOperator.cpp.o
+include/Robot/libRobot.so: include/Robot/CMakeFiles/Robot.dir/bullet_mobile.cpp.o
 include/Robot/libRobot.so: include/Robot/CMakeFiles/Robot.dir/liegroup_robotics.cpp.o
+include/Robot/libRobot.so: include/Robot/CMakeFiles/Robot.dir/opt/bullet3/examples/RobotSimulator/b3RobotSimulatorClientAPI.cpp.o
+include/Robot/libRobot.so: include/Robot/CMakeFiles/Robot.dir/opt/bullet3/examples/RobotSimulator/MinitaurSetup.cpp.o
+include/Robot/libRobot.so: include/Robot/CMakeFiles/Robot.dir/opt/bullet3/examples/ExampleBrowser/InProcessExampleBrowser.cpp.o
+include/Robot/libRobot.so: include/Robot/CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/GraphicsServerExample.cpp.o
+include/Robot/libRobot.so: include/Robot/CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/GraphicsClientExample.cpp.o
+include/Robot/libRobot.so: include/Robot/CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/RemoteGUIHelper.cpp.o
+include/Robot/libRobot.so: include/Robot/CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/PhysicsServerExample.cpp.o
+include/Robot/libRobot.so: include/Robot/CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/PhysicsServerExampleBullet2.cpp.o
+include/Robot/libRobot.so: include/Robot/CMakeFiles/Robot.dir/opt/bullet3/examples/SharedMemory/SharedMemoryInProcessPhysicsC_API.cpp.o
 include/Robot/libRobot.so: include/Robot/CMakeFiles/Robot.dir/build.make
 include/Robot/libRobot.so: /usr/lib/x86_64-linux-gnu/liblapack.so
 include/Robot/libRobot.so: /usr/lib/x86_64-linux-gnu/libblas.so
@@ -132,8 +282,22 @@ include/Robot/libRobot.so: /usr/lib/x86_64-linux-gnu/libPocoUtil.so
 include/Robot/libRobot.so: /usr/lib/x86_64-linux-gnu/libPocoZip.so
 include/Robot/libRobot.so: /usr/lib/x86_64-linux-gnu/libPocoNet.so
 include/Robot/libRobot.so: /opt/casadi/lib/libcasadi.so
+include/Robot/libRobot.so: /usr/local/lib/libBulletDynamics.so
+include/Robot/libRobot.so: /usr/local/lib/libBulletInverseDynamics.so
+include/Robot/libRobot.so: /usr/local/lib/libBulletInverseDynamicsUtils.so
+include/Robot/libRobot.so: /usr/local/lib/libBullet3Common.so
+include/Robot/libRobot.so: /usr/local/lib/libBulletCollision.so
+include/Robot/libRobot.so: /usr/local/lib/libLinearMath.so
+include/Robot/libRobot.so: /usr/local/lib/libBulletSoftBody.so
+include/Robot/libRobot.so: /usr/local/lib/libBulletExampleBrowserLib.so
+include/Robot/libRobot.so: /usr/local/lib/libBulletRobotics.so
+include/Robot/libRobot.so: /usr/local/lib/libBulletRoboticsGUI.so
+include/Robot/libRobot.so: /usr/local/lib/libOpenGLWindow.so
+include/Robot/libRobot.so: /usr/local/lib/libgwen.so
+include/Robot/libRobot.so: /usr/local/lib/libBulletWorldImporter.so
+include/Robot/libRobot.so: /usr/local/lib/libBulletFileLoader.so
 include/Robot/libRobot.so: include/Robot/CMakeFiles/Robot.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/robot/robot_ws/RTECAT_Mobile/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX shared library libRobot.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/robot/robot_ws/RTECAT_Mobile/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX shared library libRobot.so"
 	cd /home/robot/robot_ws/RTECAT_Mobile/build/include/Robot && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Robot.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

@@ -8,8 +8,12 @@
 
 #pragma once
 
+#include "PropertyDefinition.h"
+
 #define XDDP_PORT_CMD_VEL 0	/* [0..CONFIG-XENO_OPT_PIPE_NRDEV - 1] */
 #define XDDP_PORT_ODOM 1
+#define XDDP_PORT_SIM 2
+#define XDDP_PORT_ACT 3
 
 namespace packet{
 
@@ -39,5 +43,11 @@ struct Twist{
 struct Odometry{
 	Pose pose;
 	Twist twist;	
+};
+
+struct JointState{
+	double position[MOBILE_DOF_NUM];
+	double velocity[MOBILE_DOF_NUM];
+	double effort[MOBILE_DOF_NUM];
 };
 }

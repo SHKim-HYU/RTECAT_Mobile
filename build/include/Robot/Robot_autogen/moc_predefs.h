@@ -141,6 +141,7 @@
 #define __WCHAR_WIDTH__ 32
 #define __FLT32_MAX__ 3.40282346638528859811704183484516925e+38F32
 #define __DEC128_EPSILON__ 1E-33DL
+#define __BULLET__ 1
 #define __SSE2_MATH__ 1
 #define __ATOMIC_HLE_RELEASE 131072
 #define __PTRDIFF_MAX__ 0x7fffffffffffffffL

@@ -100,5 +100,7 @@ Wheel_Jacobian J_mob;
 
 Matrix3d E_mob, Einv_mob;
 
+Vector3d sumVel;
+
 
 #endif  // /* RTECAT_MOBILEMANIPULATOR_CLIENT_H */

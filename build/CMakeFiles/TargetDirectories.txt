@@ -5,8 +5,10 @@
 /home/robot/robot_ws/RTECAT_Mobile/build/CMakeFiles/rebuild_cache.dir
 /home/robot/robot_ws/RTECAT_Mobile/build/CMakeFiles/edit_cache.dir
 /home/robot/robot_ws/RTECAT_Mobile/build/CMakeFiles/RTECAT_Mobile_XDDP_NRT.dir
+/home/robot/robot_ws/RTECAT_Mobile/build/CMakeFiles/RTECAT_Mobile_SIM.dir
 /home/robot/robot_ws/RTECAT_Mobile/build/CMakeFiles/RTECAT_Mobile_CTRL.dir
 /home/robot/robot_ws/RTECAT_Mobile/build/CMakeFiles/RTECAT_Mobile_XDDP_NRT_autogen.dir
+/home/robot/robot_ws/RTECAT_Mobile/build/CMakeFiles/RTECAT_Mobile_SIM_autogen.dir
 /home/robot/robot_ws/RTECAT_Mobile/build/CMakeFiles/RTECAT_Mobile_CTRL_autogen.dir
 /home/robot/robot_ws/RTECAT_Mobile/build/include/EcatSystem/CMakeFiles/install/strip.dir
 /home/robot/robot_ws/RTECAT_Mobile/build/include/EcatSystem/CMakeFiles/install/local.dir

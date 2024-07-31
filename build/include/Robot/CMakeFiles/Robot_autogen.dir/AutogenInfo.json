@@ -28,6 +28,11 @@
 			"EWIEGA46WW/moc_ServoAxis_Motor.cpp"
 		],
 		[
+			"/home/robot/robot_ws/RTECAT_Mobile/include/Robot/bullet_mobile.h",
+			"MU",
+			"EWIEGA46WW/moc_bullet_mobile.cpp"
+		],
+		[
 			"/home/robot/robot_ws/RTECAT_Mobile/include/Robot/json_loader.h",
 			"MU",
 			"EWIEGA46WW/moc_json_loader.cpp"
@@ -41,12 +46,67 @@
 			"/home/robot/robot_ws/RTECAT_Mobile/include/Robot/xddp_packet.h",
 			"MU",
 			"EWIEGA46WW/moc_xddp_packet.cpp"
+		],
+		[
+			"/opt/bullet3/examples/ExampleBrowser/InProcessExampleBrowser.h",
+			"MU",
+			"TBXO76FXTP/moc_InProcessExampleBrowser.cpp"
+		],
+		[
+			"/opt/bullet3/examples/RobotSimulator/MinitaurSetup.h",
+			"MU",
+			"T7O3LFXEKW/moc_MinitaurSetup.cpp"
+		],
+		[
+			"/opt/bullet3/examples/RobotSimulator/b3RobotSimulatorClientAPI.h",
+			"MU",
+			"T7O3LFXEKW/moc_b3RobotSimulatorClientAPI.cpp"
+		],
+		[
+			"/opt/bullet3/examples/SharedMemory/GraphicsClientExample.h",
+			"MU",
+			"PNLEAN766B/moc_GraphicsClientExample.cpp"
+		],
+		[
+			"/opt/bullet3/examples/SharedMemory/GraphicsServerExample.h",
+			"MU",
+			"PNLEAN766B/moc_GraphicsServerExample.cpp"
+		],
+		[
+			"/opt/bullet3/examples/SharedMemory/GraphicsSharedMemoryCommands.h",
+			"MU",
+			"PNLEAN766B/moc_GraphicsSharedMemoryCommands.cpp"
+		],
+		[
+			"/opt/bullet3/examples/SharedMemory/GraphicsSharedMemoryPublic.h",
+			"MU",
+			"PNLEAN766B/moc_GraphicsSharedMemoryPublic.cpp"
+		],
+		[
+			"/opt/bullet3/examples/SharedMemory/PhysicsServerExample.h",
+			"MU",
+			"PNLEAN766B/moc_PhysicsServerExample.cpp"
+		],
+		[
+			"/opt/bullet3/examples/SharedMemory/PhysicsServerExampleBullet2.h",
+			"MU",
+			"PNLEAN766B/moc_PhysicsServerExampleBullet2.cpp"
+		],
+		[
+			"/opt/bullet3/examples/SharedMemory/RemoteGUIHelper.h",
+			"MU",
+			"PNLEAN766B/moc_RemoteGUIHelper.cpp"
+		],
+		[
+			"/opt/bullet3/examples/SharedMemory/SharedMemoryInProcessPhysicsC_API.h",
+			"MU",
+			"PNLEAN766B/moc_SharedMemoryInProcessPhysicsC_API.cpp"
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
 	"INCLUDE_DIR" : "/home/robot/robot_ws/RTECAT_Mobile/build/include/Robot/Robot_autogen/include",
 	"MOC_COMPILATION_FILE" : "/home/robot/robot_ws/RTECAT_Mobile/build/include/Robot/Robot_autogen/mocs_compilation.cpp",
-	"MOC_DEFINITIONS" : [ "Robot_EXPORTS", "__CASADI__" ],
+	"MOC_DEFINITIONS" : [ "Robot_EXPORTS", "__BULLET__", "__CASADI__" ],
 	"MOC_DEPEND_FILTERS" : 
 	[
 		[
@@ -64,8 +124,17 @@
 		"/home/robot/robot_ws/RTECAT_Mobile/include/Interpolator",
 		"/home/robot/robot_ws/RTECAT_Mobile/include/QtWidgets",
 		"/home/robot/robot_ws/RTECAT_Mobile/include/DarkStyleWindow",
+		"/opt/bullet3/src",
+		"/opt/bullet3/examples",
+		"/opt/bullet3/examples/SharedMemory",
+		"/opt/bullet3/examples/RobotSimulator",
+		"/opt/bullet3/examples/ThirdPartyLibs",
+		"/opt/bullet3/examples/ThirdPartyLibs/enet/include",
+		"/opt/bullet3/examples/ThirdPartyLibs/clsocket/src",
+		"/opt/bullet3/examples/CommonInterfaces",
 		"/opt/casadi/include",
 		"/opt/casadi/include/casadi",
+		"/usr/local/include/bullet",
 		"/usr/include/eigen3",
 		"/usr/include/jsoncpp",
 		"/usr/include",
@@ -108,7 +177,32 @@
 			"MU"
 		],
 		[
+			"/home/robot/robot_ws/RTECAT_Mobile/include/Robot/bullet_mobile.cpp",
+			"MU"
+		],
+		[
 			"/home/robot/robot_ws/RTECAT_Mobile/include/Robot/liegroup_robotics.cpp",
+			"MU"
+		],
+		[
+			"/opt/bullet3/examples/ExampleBrowser/InProcessExampleBrowser.cpp",
+			"MU"
+		],
+		[ "/opt/bullet3/examples/RobotSimulator/MinitaurSetup.cpp", "MU" ],
+		[
+			"/opt/bullet3/examples/RobotSimulator/b3RobotSimulatorClientAPI.cpp",
+			"MU"
+		],
+		[ "/opt/bullet3/examples/SharedMemory/GraphicsClientExample.cpp", "MU" ],
+		[ "/opt/bullet3/examples/SharedMemory/GraphicsServerExample.cpp", "MU" ],
+		[ "/opt/bullet3/examples/SharedMemory/PhysicsServerExample.cpp", "MU" ],
+		[
+			"/opt/bullet3/examples/SharedMemory/PhysicsServerExampleBullet2.cpp",
+			"MU"
+		],
+		[ "/opt/bullet3/examples/SharedMemory/RemoteGUIHelper.cpp", "MU" ],
+		[
+			"/opt/bullet3/examples/SharedMemory/SharedMemoryInProcessPhysicsC_API.cpp",
 			"MU"
 		]
 	],
